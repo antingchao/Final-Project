@@ -4,7 +4,7 @@ int32_t print_player_status(int32_t player_index){
 	if(player_index<0||player_index>PlayerNum)return 0;
 	printf("player%d ",player_index+1);
 	if(player[player_index].alive){
-		printf("(%d/%d): ",player[player_index].blood,player[player_index].maxblood);
+		printf("(blood %d/%d): ",player[player_index].blood,player[player_index].maxblood);
 		if(player[player_index].iden==Sheriff)printf("%s",iden_nametxt[player[player_index].iden]);
 		printf("\nrole: %s\n",role_nametxt[player[player_index].role]);
 		printf("role ability: %s\n",role_helptxt[player[player_index].role]);
