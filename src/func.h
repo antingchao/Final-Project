@@ -16,8 +16,9 @@ int32_t unget_last_card(sPile *pile1,sPile *pile2);
 int32_t num_scanf(int32_t *num);
 int32_t print_player_status(int32_t player_index);
 int32_t player_dead(int32_t player_index);
+int32_t find_card_index(sPile pile,eType type,int32_t *pCard_index);
 
-//if ture, return 1, else return 0.
+//if true, return 1, else return 0.
 int32_t have_card(sPile pile,eType type);
 int32_t is_player_exist(int32_t player_index);
 int32_t is_game_end();
