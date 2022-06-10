@@ -29,9 +29,9 @@ int main(){
 			printf("Dynamite determine:");
 			sPile temp;
 			temp.num=0;
-			while(!get_last_card(&temp, &stock)){
-				// check
+			while(!get_last_card(&temp, &stock)){ // check
 				// stock 沒牌
+				
 			}
 			printf("(%s,%s) %s\n",
 					suit_nametxt[temp.card[0].suit],
@@ -45,7 +45,7 @@ int main(){
 					// check
 				}
 				print_all_status(); // print_player_state after (-3 blood) & (discard dynamite)			
-				if(player[PlayerNow].blood <= 0){ // dying -> use beer?
+				if(PlayerNow==PlayerHuman && player[PlayerNow].blood <= 0){ // dying -> use beer?
 					while(have_card(player[PlayerNow].hand, Beer)){
 						printf("Do you want to use Beer and +1 blood? (y/n)");
 						char opt[100]={0};
