@@ -45,8 +45,8 @@ int main(){
 					// check
 				}
 				print_all_status(); // print_player_state after (-3 blood) & (discard dynamite)			
-				if(PlayerNow==PlayerHuman && player[PlayerNow].blood <= 0){ // dying -> use beer?
-					while(have_card(player[PlayerNow].hand, Beer)){
+				if(player[PlayerNow].blood <= 0){ // dying -> use beer?
+					while(PlayerNow==PlayerHuman && have_card(player[PlayerNow].hand, Beer)){
 						printf("Do you want to use Beer and +1 blood? (y/n)");
 						char opt[100]={0};
 						scanf("%[^\n]",opt);
