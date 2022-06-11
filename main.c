@@ -30,7 +30,9 @@ int main(){
 			sPile temp; // determine card
 			temp.num=0;
 			if(!get_last_card(&temp, &stock)){ // check
-				// stock 沒牌				
+				// stock 沒牌
+				shuffling();
+				get_last_card(&temp, &stock);		
 			}
 			printf("(%s,%s) %s\n",
 					suit_nametxt[temp.card[0].suit],
@@ -40,9 +42,7 @@ int main(){
 				// explode <- spade 2~9
 				printf("The dynamite explodes.\n");
 				player[PlayerNow].blood -= 3; // -3 blood
-				if(!get_last_card(&discard, &temp)){ // discard determine card
-					// check
-				}
+				get_last_card(&discard, &temp); // discard determine card
 				print_all_status(); // print_player_state after (-3 blood) & (discard dynamite)			
 				if(player[PlayerNow].blood <= 0){ // dying
 					while(PlayerNow==PlayerHuman && have_card(player[PlayerNow].hand, Beer)){ // playerHuman -> use beer?
@@ -71,13 +71,11 @@ int main(){
 					}
 				}
 			}
-			else{ // not
+			else{ // not explode
 				printf("Dinamite pass to Player%d\n", ((PlayerNow+1)%PlayerNum)+1);
 				int32_t card_index = -1;
 				find_card_index(player[PlayerNow].equip, Dynamite, &card_index);
-				if(!get_card(player[(PlayerNow+1)%PlayerNum].equip, player[PlayerNow].equip, card_index)){
-					// check									
-				}				
+				get_card(player[(PlayerNow+1)%PlayerNum].equip, player[PlayerNow].equip, card_index);		
 			}						
 		}
 		if(have_card(player[PlayerNow].equip,Jail)){
