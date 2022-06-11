@@ -35,3 +35,7 @@ int32_t distance(int32_t player1_index,int32_t player2_index);
 //else if Renegade wins, return 3
 //else return 0
 int32_t who_win();
+
+//if PlayerNow dies, return 2
+// else, return 1
+int32_t det_dynamite();
